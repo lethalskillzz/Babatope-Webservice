@@ -32,10 +32,10 @@ exports.read_a_record = function(req, res) {
 
 
 exports.update_a_record = function(req, res) {
-    Record.findOneAndUpdate(req.params.recordId, req.body, { new: true }, function(err, task) {
+    Record.findOneAndUpdate(req.params.recordId, req.body, { new: true }, function(err, record) {
         if (err)
             res.send(err);
-        res.json(task);
+        res.json(record);
     });
 };
 
