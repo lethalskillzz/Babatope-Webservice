@@ -20,5 +20,4 @@ app.use(function(req, res) {
 
 app.listen(port);
 
-
 console.log('tope RESTful API server started on: ' + port);
