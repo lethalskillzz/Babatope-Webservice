@@ -9,7 +9,7 @@ var express = require('express'),
 mongoose.Promise = global.Promise;
 mongoose.connect(MONGODB);
 
-console.log('MongoDB connecting to remote db on: ' + MONGODB);
+console.log('MongoDB connecting to remote URI: ' + MONGODB);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
