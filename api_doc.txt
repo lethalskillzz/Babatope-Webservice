@@ -23,7 +23,6 @@ Example:
 ]
 
 
-
 2. Posting new record
 POST /records
 Post type: x-www-form-urlencoded
