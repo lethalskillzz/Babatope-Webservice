@@ -14,11 +14,11 @@ exports.list_all_records = function(req, res) {
 
 exports.create_a_record = function(req, res) {
 
-    var fid1 = req.param('fid1');
-    var fid2 = req.param('fid2');
-    var fid3 = req.param('fid3');
+    // var fid1 = req.param('fid1');
+    // var fid2 = req.param('fid2');
+    // var fid3 = req.param('fid3');
 
-    var new_record = new Record(req.params);
+    var new_record = new Record(req.query);
     new_record.save(function(err, record) {
         if (err)
             res.send(err);
