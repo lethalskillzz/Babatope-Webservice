@@ -4,19 +4,19 @@ var Schema = mongoose.Schema;
 
 
 var TaskSchema = new Schema({
-    name: {
+    fid1: {
         type: String,
-        Required: 'Kindly enter the name of the record'
+        Required: 'Kindly enter the fid1 of the record'
     },
 
-    finger1: {
+    fid2: {
         type: String,
-        Required: 'Kindly enter the finger1 of the record'
+        Required: 'Kindly enter the fid2 of the record'
     },
 
-    finger2: {
+    fid3: {
         type: String,
-        Required: 'Kindly enter the finger2 of the record'
+        Required: 'Kindly enter the fid3 of the record'
     },
 
     Created_date: {
