@@ -19,6 +19,8 @@ exports.create_a_record = function(req, res) {
     // var fid3 = req.param('fid3');
 
     var new_record = new Record(req.query);
+
+    
     new_record.save(function(err, record) {
         if (err)
             res.send(err);
