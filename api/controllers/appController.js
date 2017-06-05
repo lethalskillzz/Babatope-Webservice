@@ -13,6 +13,7 @@ exports.list_all_records = function(req, res) {
 
 
 exports.create_a_record = function(req, res) {
+
     var new_record = new Record(req.query);
     new_record.save(function(err, record) {
         if (err)
