@@ -6,7 +6,8 @@ module.exports = function(app) {
     //app Routes
     app.route('/records')
         .get(record.list_all_records)
-        .post(record.create_a_record);
+        .post(record.create_a_record)
+        .get(record.count_all_records);
 
 
     app.route('/records/:recordId')

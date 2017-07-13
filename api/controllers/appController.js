@@ -23,6 +23,15 @@ exports.create_a_record = function(req, res) {
 };
 
 
+exports.count_all_records = function(req, res) {
+    Record.count({}, function(err, record) {
+        if (err)
+            res.send(err);
+        res.send(record);
+    });
+};
+
+
 exports.read_a_record = function(req, res) {
     Record.findById(req.params.recordId, function(err, record) {
         if (err)
