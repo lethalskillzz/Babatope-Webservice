@@ -52,7 +52,7 @@ exports.update_a_record = function(req, res) {
 
 exports.delete_a_record = function(req, res) {
 
-    Task.remove({
+    Record.remove({
         _id: req.params.recordId
     }, function(err, record) {
         if (err)
