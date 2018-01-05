@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="container">
+
+    <table>
+        <tr>
+            <th>fid1</th>
+            <th>fid2</th>
+            <th>fid3</th>
+        </tr>
+        <% for (var i = 0; i < record.length; i++) { %>
+            <tr>
+                <td>
+                    <%= record[i].fid1 %>
+                </td>
+                <td>
+                    <%= record[i].fid2 %>
+                </td>
+                <td>
+                    <%= record[i].fid3 %>
+                </td>
+            </tr>
+            <% } %>
+    </table>
+</body>
+
+</html>

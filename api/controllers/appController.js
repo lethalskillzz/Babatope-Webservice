@@ -2,61 +2,51 @@
 
 var mongoose = require('mongoose'),
     Record = mongoose.model('Records');
-
-exports.list_all_records = function(req, res) {
-    Record.find({}, function(err, record) {
-        if (err)
-            res.send(err);
-        res.json(record);
-    });
-};
+var ejs = require('ejs');
 
 
 exports.create_a_record = function(req, res) {
-
     var new_record = new Record(req.query);
     new_record.save(function(err, record) {
         if (err)
             res.send(err);
-        res.json(record);
+        res.send("AckOk");
+        //res.json(record);
     });
 };
 
 
-exports.count_all_records = function(req, res) {
-    Record.count({}, function(err, record) {
-        if (err)
-            res.send(err);
-        res.send(record);
-    });
-};
-
+// exports.read_a_record = function(req, res) {
+//     Record.findOne({}, {}, { sort: { 'created_at': -1 } }, function(err, record) {
+//         if (err)
+//             res.send(err);
+//         res.send(record.fid1 + ":" + record.fid2 + ":" + record.fid3);
+//     });
+// };
 
 exports.read_a_record = function(req, res) {
-    Record.findById(req.params.recordId, function(err, record) {
+    Record.findOne().sort({ created_at: 'asc', _id: -1 }).limit(1).exec(function(err, record) {
         if (err)
             res.send(err);
-        res.json(record);
+        res.send(record.fid1 + ":" + record.fid2 + ":" + record.fid3);
     });
 };
 
 
-exports.update_a_record = function(req, res) {
-    Record.findOneAndUpdate(req.params.recordId, req.body, { new: true }, function(err, record) {
+
+exports.read_all_record = function(req, res) {
+    Record.find({}, function(err, record) {
         if (err)
             res.send(err);
-        res.json(record);
+        res.render('../table', { record: record });
     });
 };
 
 
-exports.delete_a_record = function(req, res) {
-
-    Record.remove({
-        _id: req.params.recordId
-    }, function(err, record) {
+exports.delete_all_record = function(req, res) {
+    Record.remove({}, function(err) {
         if (err)
             res.send(err);
-        res.json({ message: 'Record successfully deleted' });
+        res.end('Records successfully deleted');
     });
 };

@@ -2,16 +2,17 @@
 module.exports = function(app) {
     var record = require('../controllers/appController');
 
-
     //app Routes
     app.route('/records')
-        .get(record.list_all_records)
-        .post(record.create_a_record)
-        .get(record.count_all_records);
+        .get(record.create_a_record);
 
+    app.route('/records/read')
+        .get(record.read_a_record);
 
-    app.route('/records/:recordId')
-        .get(record.read_a_record)
-        .put(record.update_a_record)
-        .delete(record.delete_a_record);
+    app.route('/records/readall')
+        .get(record.read_all_record);
+
+    app.route('/records/deleteall')
+        .get(record.delete_all_record);
+
 };

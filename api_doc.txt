@@ -1,90 +1,88 @@
-BaseUrl: https://babatope-e-voting.herokuapp.com/
+BaseUrl: http://173.255.219.183:3000
 
 Please note that the BASE URL means the url that will be used for all interactions with the API.
-For example, when getting all Records, you will only attach the 'records' to the base URL as shown below.
+For example, when getting all Records, you will only attach the 'records/readall' to the base URL as shown below.
 
-https://babatope-e-voting.herokuapp.com/records
+173.255.219.183:3000/records/readall
 
 
 1. Getting all records
+GET /records/readall
+
+Response type: HTML
+Example:
+[<!DOCTYPE html>
+<html lang="en">
+    <body class="container">
+        <table>
+            <tr>
+                <th>fid1</th>
+                <th>fid2</th>
+                <th>fid3</th>
+            </tr>
+            <tr>
+                <td>
+                    abc
+                </td>
+                <td>
+                    def
+                </td>
+                <td>
+                    ghi
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
+
+
+
+2. Posting a new record
 GET /records
 
-Response type: application/json
 Example:
-[
-  {
-    "_id": "593562bc505a9a0004cc2de3",
-    "fid1": "abcd",
-    "fid2": "abcd",
-    "fid3": "abcd",
-    "__v": 0,
-    "Created_date": "2017-06-05T13:55:08.780Z"
-  }
-]
+173.255.219.183:3000/records?fid1=abcd&fid2=abcd&fid3=abcd
 
-
-2. Posting new record
-POST /records
-Post type: query string
+Response type: Text
 Example:
-https://babatope-e-voting.herokuapp.com/records?fid1=abcd&fid2=abcd&fid3=abcd
+AckOk
 
-Response type: application/json
+
+
+3. Getting a single record (last record)
+GET /records/read
+
+Response type: HTML
 Example:
-[
-  {
-    "_id": "593562bc505a9a0004cc2de3",
-    "fid1": "abcd",
-    "fid2": "abcd",
-    "fid3": "abcd",
-    "__v": 0,
-    "Created_date": "2017-06-05T13:55:08.780Z"
-  }
-]
+[<!DOCTYPE html>
+<html lang="en">
+    <body class="container">
+        <table>
+            <tr>
+                <th>fid1</th>
+                <th>fid2</th>
+                <th>fid3</th>
+            </tr>
+            <tr>
+                <td>
+                    abc
+                </td>
+                <td>
+                    def
+                </td>
+                <td>
+                    ghi
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
 
 
 
-3. Getting single record by Id
-GET /records/<recordId>
+5. Delete all records 
+DELETE /records/deletall
 
-Response type: application/json
+Response type: Text
 Example:
-{
-    "_id": "593562bc505a9a0004cc2de3",
-    "fid1": "abcd",
-    "fid2": "abcd",
-    "fid3": "abcd",
-    "__v": 0,
-    "Created_date": "2017-06-05T13:55:08.780Z"
-}
-
-
-
-4. UPpdate single record by Id
-PUT /records/<recordId>
-
-Post type: query string
-Example:
-https://babatope-e-voting.herokuapp.com/records?fid1=abcd&fid2=abcd&fid3=abcd
-
-Response type: application/json
-Example:
-{
-    "_id": "593562bc505a9a0004cc2de3",
-    "fid1": "abcd",
-    "fid2": "abcd",
-    "fid3": "abcd",
-    "__v": 0,
-    "Created_date": "2017-06-05T13:55:08.780Z"
-}
-
-
-
-5. Delete single record by Id
-DELETE /records/<recordId>
-
-Response type: application/json
-Example:
-{ 
-    message: 'Record successfully deleted' 
-}
+Records successfully deleted

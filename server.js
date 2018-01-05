@@ -1,10 +1,12 @@
 var express = require('express'),
     app = express(),
     port = process.env.PORT || 3000,
-    MONGODB = process.env.MONGOLAB_URI || 'mongodb://localhost/Topedb',
+    MONGODB = process.env.MONGOLAB_URI || 'mongodb://mongodb/Topedb2',
     mongoose = require('mongoose'),
     Task = require('./api/models/appModel'),
     bodyParser = require('body-parser');
+
+app.set('view engine', 'ejs');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(MONGODB);
